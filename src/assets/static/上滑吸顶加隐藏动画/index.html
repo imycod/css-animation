@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .body {
+      width: 100%;
+      height: 100%;
+      background: #f5f5f5;
+    }
+
+    .scroll-down {
+      transform: translate3d(0, -200%, 0);
+    }
+
+
+    .content {
+      transition: all 300ms ease-in-out;
+    }
+
+    .qianyi {
+      transform: translateY(-2%);
+    }
+
+    .fied {
+      position: fixed;
+      width: 100%;
+      height: 100px;
+      border: 1px solid rgb(231, 24, 24);
+      box-sizing: border-box;
+    }
+
+    .box_normal {
+      height: 100px;
+      transition: all 100ms ease-in-out;
+    }
+
+    .po {
+      width: 100%;
+      height: 100%;
+      background: #f5f5f5;
+      position: relative;
+    }
+
+    .fold {
+      position: fixed;
+      width: 100%;
+      height: 50px;
+      top: 0px;
+      left: 0px;
+      border: 1px solid rgb(3, 15, 192);
+      box-sizing: border-box;
+    }
+
+    .box_fold {
+      height: 50px;
+      position: fixed;
+      width: 100%;
+      top: 50px;
+      left: 0px;
+      box-sizing: border-box;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .po>.reduce {
+      width: 80%;
+      height: 50px;
+      border-radius: 30px;
+      border: 1px solid black;
+      position: absolute;
+      bottom: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .bd {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <div id='root'>
+    <div class="body">
+      <div :class="`box_normal ${fold ? 'scroll-down' :''}`">
+        <div class="fied">
+          <div class="po">
+            <div class="reduce"></div>
+          </div>
+        </div>
+      </div>
+      <!-- <div :class="`${fold?'':'box_fold'}`" v-show="fold"> -->
+      <div class="box_fold bd center" v-show="fold">
+        啊啊啊啊
+        <div class="fold" ref="fold"></div>
+      </div>
+      <div :class="`content ${fold?'qianyi':''}`" style="margin-top: 25px;">
+        <ul>
+          <div v-for="i in 10">
+            <h3 style="background-color: yellow;">{{i}}</h3>
+            <div class="center" v-for="ii in 10">
+              <h5>{{ii}}</h5>
+            </div>
+          </div>
+        </ul>
+        <!-- <div class="blank" style="height: 60px;"></div> -->
+      </div>
+    </div>
+  </div>
+  <script src='https://cdn.bootcss.com/vue/2.5.16/vue.min.js'></script>
+  <script>
+    const throttle = function (func, delay) {
+      var timer = null;
+      var startTime = Date.now();
+      return function () {
+        var curTime = Date.now();
+        var remaining = delay - (curTime - startTime);
+        var context = this;
+        var args = arguments;
+        clearTimeout(timer);
+        if (remaining <= 0) {
+          func.apply(context, args);
+          startTime = Date.now();
+        } else {
+          timer = setTimeout(func, remaining);
+        }
+      }
+    }
+
+    new Vue({
+      el: '#root',
+      data: {
+        fold: false,
+      },
+      methods: {
+        handleScroll() {
+          let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+          let foldHeight = this.$refs.fold.offsetHeight;
+
+          //获取滚动时的高度
+          console.log({ scrollTop })
+          console.log({ foldHeight })
+
+          // 滚没滚
+          if (scrollTop > 0) {
+            this.fold = true;
+            return
+          }
+          if (scrollTop < foldHeight) {
+            this.fold = false;
+          }
+        }
+      },
+      mounted() {
+        window.addEventListener("scroll", throttle(this.handleScroll, 1000));
+      },
+      destroyed() {
+        document.removeEventListener('scroll', this.handleScroll)
+      }
+    });
+  </script>
+</body>
+
+</html>
