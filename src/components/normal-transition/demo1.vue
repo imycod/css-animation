@@ -1,7 +1,13 @@
 <template>
-  <div class="wrapper center bd">
-    <div class="content">this is content</div>
-    <div class="footer center bd">{{ config }}</div>
+  <div class="container">
+    <div
+      :class="`common wrapper${index} center bd`"
+      v-for="(item, index) in list"
+      :key="index"
+    >
+      <div class="content">this is content</div>
+      <div class="footer bd" :class="[index==0 && 'center',index==1 && 'text-center']">{{ item.text }}</div>
+    </div>
   </div>
 </template>
 
@@ -15,7 +21,11 @@ export default {
   setup() {
     const configStore = useConfigStore();
     const { config } = storeToRefs(configStore);
-    const state = filePathNameMatchStoreState(config, import.meta.url);
+    // todo... import.meta.url
+    const state = filePathNameMatchStoreState(
+      config,
+      "normal-transition/demo1"
+    );
     return {
       list: state.list,
     };
@@ -24,21 +34,36 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.wrapper {
-  width: 300px;
-  height: 500px;
-  position: relative;
-  .content {
+.container {
+  display: flex;
+  .common {
+    width: 300px;
+    height: 500px;
+    position: relative;
+    .footer {
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      height: 15%;
+      transition: all 0.3s;
+    }
   }
-  .footer {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    height: 15%;
-    transition: all 0.3s;
+  .wrapper0 {
+    &:hover .footer {
+      height: 100%;
+    }
   }
-  &:hover .footer {
-    height: 100%;
+  .wrapper1 {
+     .footer {
+      position: absolute;
+      bottom: -50px;
+      width: 100%;
+      height: 20%;
+      transition: all 0.3s;
+    }
+    &:hover .footer {
+      bottom: 0px;
+    }
   }
 }
 </style>
