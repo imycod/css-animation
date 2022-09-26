@@ -1,4 +1,4 @@
-import installComponents from "./loader-component.js"
+import { installComponents } from "@/utils/loader/index.js"
 import "./index.scss"
 
 import { createApp } from 'vue'

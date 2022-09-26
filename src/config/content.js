@@ -11,6 +11,15 @@ const content = {
             ]
         }
     },
+    perspective:{
+        demo1:{
+            list:[
+                {
+                    text:'阿萨的'
+                }
+            ]
+        }
+    }
 }
 
 export default content
