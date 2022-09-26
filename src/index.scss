@@ -1,4 +1,20 @@
+.bd{
+    border: 1px solid black;
+}
 
+.text-center{
+    text-align: center;
+}
 
+.flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-
+.center{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
