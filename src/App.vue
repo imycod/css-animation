@@ -1,15 +1,8 @@
-<script>
-export default {
-  setup() {
-    return {};
-  },
-};
+<script setup>
 </script>
 
 <template>
-  <normal-transition-demo1 />
-  <perspective-demo1/>
-  <hover-demo1></hover-demo1>
+  <router-view></router-view>
 </template>
 
 <style lang="scss">
