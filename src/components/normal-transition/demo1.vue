@@ -18,11 +18,12 @@
 
 <script>
 import { useStore } from "@/utils/store.js";
-
+import { useConfigStore } from "@/store/config.js";
 export default {
   name: "normal-transition-demo1",
   setup() {
-    const state = useStore(import.meta.url);
+    const configStore = useConfigStore();
+    const state = useStore(import.meta.url, configStore);
     return {
       list: state.list,
     };

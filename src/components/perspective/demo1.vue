@@ -1,13 +1,15 @@
 <template>
-    {{list}}
+  {{ list }}
 </template>
 
 <script>
-import {useStore} from "@/utils/store.js"
+import { useStore } from "@/utils/store.js";
+import { useConfigStore } from "@/store/config.js";
 export default {
   name: "perspective-demo1",
   setup() {
-    const state = useStore(import.meta.url);
+    const configStore = useConfigStore();
+    const state = useStore(import.meta.url,configStore);
     return {
       list: state.list,
     };
