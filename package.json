@@ -3,9 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite && npm run dev-server",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dev-server":"node ./server.js"
   },
   "dependencies": {
     "element-plus": "^2.2.17",
