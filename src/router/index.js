@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from "vue-router"
+import { createRouter, createWebHashHistory, createWebHistory } from "vue-router"
 
 const routes = [
     {
@@ -6,11 +6,27 @@ const routes = [
         redirect: '/home',
         component: () => import("@/layout/home.vue"),
         children: [
-           {
-            path: 'home',
-            component: () => import("@/views/home.vue")
-           }
+            {
+                path: 'home',
+                component: () => import("@/views/home.vue")
+            }
         ]
+    },
+    {
+        path: '/hover',
+        component: () => import("@/views/hover.vue")
+    },
+    {
+        path: '/animation',
+        component: () => import("@/views/animation.vue")
+    },
+    {
+        path: '/perspective',
+        component: () => import("@/views/perspective.vue")
+    },
+    {
+        path: '/reference',
+        component: () => import("@/views/reference.vue")
     },
 ]
 

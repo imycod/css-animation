@@ -5,7 +5,7 @@
       v-for="(item, index) in list"
       :key="index"
     >
-      <div class="content">this is content</div>
+      <div class="content">{{item.content}}</div>
       <div
         class="footer bd"
         :class="[index == 0 && 'center', index == 1 && 'text-center']"
@@ -61,6 +61,16 @@ export default {
     }
     &:hover .footer {
       bottom: 0px;
+    }
+  }
+  .wrapper2 {
+    .footer {
+      width: 100%;
+      height: 20%;
+      transition: all 0.3s;
+    }
+    &:hover .footer {
+      transform: translateY(100%);
     }
   }
 }

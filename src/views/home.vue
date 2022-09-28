@@ -1,8 +1,6 @@
 <template>
   <div>
-    <normal-transition-demo1 />
-    <perspective-demo1 />
-    <hover-demo1></hover-demo1>
+    home
   </div>
 </template>
 
