@@ -2,7 +2,7 @@
   <div class="container bd">
     <div class="scene">
       <div class="cubes">
-        <div class="cube" v-for="_ in 1">
+        <div class="cube" v-for="_ in 3">
           <div class="face face--front"></div>
           <div class="face face--back"></div>
           <div class="face face--left"></div>

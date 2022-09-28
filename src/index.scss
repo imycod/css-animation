@@ -1,28 +1,32 @@
-.bd{
+.bd {
     border: 1px solid black;
 }
 
-#app{
+#app {
     height: 100%;
 }
 
-.text-center{
+.text-center {
     text-align: center;
 }
 
-.flex-center{
+.flex {
+    display: flex;
+}
+
+.flex-center {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.center{
+.center {
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.h-full{
+.h-full {
     height: 100%;
 }

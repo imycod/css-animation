@@ -15,7 +15,17 @@ class LoaderComponents {
             //     .pop()
             //     ?.replace(/\.\w+$/, '')
             const component = defineAsyncComponent(modules[path])
-            this.componentList.push({ name: path.split('/')[len - 2] + '-' + path.split('/')[len - 1].split('.')[0], sfc: { name: path.split('/')[len - 1], ...component } })
+            let key='',name='';
+            console.log(path.split('/')[len - 3]);
+            if (len>5) {
+                key=path.split('/')[len - 3] + '-' + path.split('/')[len - 2]
+                name=path.split('/')[len - 1]
+            }else{
+                key=path.split('/')[len - 2]
+                name=path.split('/')[len - 1]
+            }
+            console.log({ name: key + '-' + name.split('.')[0], sfc: { name: name, ...component } });
+            this.componentList.push({ name: key + '-' + name.split('.')[0], sfc: { name: name, ...component } })
         }
     }
 }
