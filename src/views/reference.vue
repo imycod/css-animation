@@ -1,10 +1,12 @@
 <template>
-  <div class="h-full">
-    <div class="combine-demo1 flex bd">
+  <div class="">
+    <!-- <div class="combine-demo1 flex bd">
       <div class="demo1">
         <reference-demo1-demo1></reference-demo1-demo1>
       </div>
-    </div>
+    </div> -->
+    <reference-demo2-simple-demo2></reference-demo2-simple-demo2>
+    <!-- <reference-demo2-use-demo2></reference-demo2-use-demo2> -->
   </div>
 </template>
 

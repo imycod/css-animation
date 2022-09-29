@@ -401,7 +401,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 :root {
   --cube-width: 160px;
   --cube-height: 8px;
