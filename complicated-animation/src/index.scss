@@ -1,4 +1,35 @@
+.bd {
+    border: 1px solid black;
+}
 
+#app {
+    height: 100%;
+}
 
+.text-center {
+    text-align: center;
+}
 
+.flex {
+    display: flex;
+}
 
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.h-full {
+    height: 100%;
+}
+.w-full{
+    width: 100%;
+}

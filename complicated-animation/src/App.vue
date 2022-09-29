@@ -1,12 +1,12 @@
-<script setup></script>
+<script setup>
+</script>
 
 <template>
-  <div class="bd">
-    <div class="box">111</div>
-  </div>
+  <router-view></router-view>
 </template>
 
 <style lang="scss">
+<<<<<<< .merge_file_a02296
 @import "node_modules/mathsass/dist/_math";
 
 .bd {
@@ -33,5 +33,12 @@
   background: red;
   width: 100px;
   height: 100px;
+=======
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+>>>>>>> .merge_file_a02932
 }
 </style>
