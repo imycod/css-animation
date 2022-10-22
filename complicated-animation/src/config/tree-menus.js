@@ -15,4 +15,8 @@ export default [
         name:'参考与改造',
         path:'/reference',
     },
+    {
+        name:'导航栏与菜单栏',
+        path:'/navigation',
+    },
 ]

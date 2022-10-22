@@ -1,6 +1,6 @@
 <template>
   <div class="common-layout">
-    <ul>
+    <ul class="navigation">
       <li v-for="(item, idx) in config.menus" @click="jumpToEffect(item)">
         {{ item.name }}
       </li>
@@ -34,18 +34,56 @@ import {useRouter} from "vue-router"
 // };
 
 // 暂且用写死的
-import { storeToRefs } from "pinia";
+import {storeToRefs} from "pinia";
 
-import { useConfigStore } from "@/store/config.js";
+import {useConfigStore} from "@/store/config.js";
+
 const configStore = useConfigStore();
-const { config } = storeToRefs(configStore);
+const {config} = storeToRefs(configStore);
 
-const router=useRouter()
+const router = useRouter()
+
 function jumpToEffect(item) {
   router.push(item.path)
 }
 </script>
 
 <style lang="scss" scoped>
+.common-layout {
+  .navigation { // ul > li
+    list-style: none;
+    padding-left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    overflow: hidden;
 
+    li {
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      position: relative;
+      height: 30px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        height: 2px;
+        border-radius: 3px;
+        background: #333;
+        transform: scaleX(0);
+        transition: transform 0.3s ease-in-out;
+        transform-origin: right;
+      }
+
+      &:hover::before {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+    }
+  }
+}
 </style>

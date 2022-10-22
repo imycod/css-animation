@@ -27,6 +27,9 @@ const routes = [
     {
         path: '/reference',
         component: () => import("@/views/reference.vue")
+    },   {
+        path: '/navigation',
+        component: () => import("@/views/navigation.vue")
     },
 ]
 
